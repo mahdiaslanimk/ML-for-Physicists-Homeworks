@@ -101,7 +101,9 @@ Now we can plot the results and make a gif from them. I made some gifs related w
 
 so the results are as follows:
 
-#### Case 1:
+---
+
+## Case 1:
 
 ```python
 Nh_max    = 10
@@ -124,7 +126,7 @@ scale_b = 1/3
 
 ---
 
-#### Case 2:
+## Case 2:
 
 ```python
 Nh_max    = 100
@@ -148,7 +150,7 @@ scale_b = 1/3
 
 ---
 
-#### Case 3:
+## Case 3
 
 ```python
 Nh_max    = 100
@@ -171,7 +173,7 @@ scale_b = 1/3
 
 ---
 
-#### Case 4:
+## Case 4
 
 ```Python
 Nh_max    = 30
@@ -194,7 +196,7 @@ scale_b = 1/3
 
 ---
 
-#### Case 5:
+## Case 5:
 
 ```Python
 Nh_max    = 30
@@ -217,7 +219,7 @@ scale_b = 3
 
 ---
 
-## Conclusions:
+# Conclusions:
 
 1. By adding more hidden layers the network is able to generate more complicated outputs(function). That's why we use deep nets.
 2. To generate a complex output (function) we have to increase both **number of hidden layers**(```Nh_max```) and **layer size**.
