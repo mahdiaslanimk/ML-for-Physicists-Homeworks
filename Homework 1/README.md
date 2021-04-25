@@ -14,7 +14,7 @@ What happens when you change the spread of the random weights? Smart weight init
 
 ## Solution Results:
 
-I wrote one piece of code for problems 3 and 4 and most of it is same as the [suggested starting code](https://nbviewer.jupyter.org/urls/owncloud.gwdg.de/index.php/s/Unl2Yru1HsqwQNK/download). The solution is to to use a constant seed which makes random numbers predictable:
+I wrote one piece of code for problems 3 and 4 and most of it is same as the [suggested starting code](https://nbviewer.jupyter.org/urls/owncloud.gwdg.de/index.php/s/Unl2Yru1HsqwQNK/download). The solution is to to use a constant ```seed``` which makes random numbers predictable:
 
 ```python
 import numpy as np
@@ -85,9 +85,9 @@ for y_out in y_out_list:
 
 Now we can plot the results and make a gif from them. I made some gifs related with different variations i.e.:
 
-- **Distribution Type:** ```uniform``` vs ```normal```  and their spreads
+- **Distribution Type:** ```uniform``` vs ```normal``` 
 
-- **Distribution's spread:** spread of generated random numbers - variable names: 
+- **Distribution spread:** spread of generated random numbers - variable names:
 
   ​	for uniform distribution: ```high_w``` , ```high_b``` 
 
@@ -116,11 +116,11 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Case 1-Uniform](./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Uniform_Nh10_LS100_high_w=3_b=1.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Uniform_Nh10_LS100_high_w=3_b=1.gif" alt="Case 1-Uniform" />
 
 #### Normal:
 
-![Case 1-Normal](./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Normal_Nh10_LS100_Scale_w=1_b=1div3.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Normal_Nh10_LS100_Scale_w=1_b=1div3.gif" alt="Case 1-Normal" />
 
 ---
 
@@ -139,11 +139,12 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Case 2-Uniform](./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Uniform_Nh100_LS10_high_w=3_b=1.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Uniform_Nh100_LS10_high_w=3_b=1.gif" alt="Case 2-Uniform" />
+
 
 #### Normal:
 
-![Case 2-Normal](./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Normal_Nh100_LS10_Scale_w=1_b=1div3.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Normal_Nh100_LS10_Scale_w=1_b=1div3.gif" alt="Case 2-Normal" />
 
 ---
 
@@ -162,11 +163,12 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Case 3-Uniform](./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Uniform_Nh100_LS100_high_w=3_b=1.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Uniform_Nh100_LS100_high_w=3_b=1.gif" alt="Case 3-Uniform" />
 
 #### Normal:
 
-![Case 3-Normal](./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Normal_Nh100_LS100_Scale_w=1_b=1div3.gif)
+![Case 3-Normal]()
+<img src="./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Normal_Nh100_LS100_Scale_w=1_b=1div3.gif" alt="Case 3-Normal" />
 
 ---
 
@@ -185,11 +187,11 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Case 4-Uniform](./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Uniform_Nh30_LS100_high_w=3_b=1.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Uniform_Nh30_LS100_high_w=3_b=1.gif" alt="Case 4-Uniform" />
 
 #### Normal:
 
-![Case 4-Normal](./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Normal_Nh30_LS100_Scale_w=1_b=1div3.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Normal_Nh30_LS100_Scale_w=1_b=1div3.gif" alt="Case 4-Normal" />
 
 ---
 
@@ -208,11 +210,11 @@ scale_b = 3
 
 #### Uniform:
 
-![Case 5-Uniform](./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Uniform_Nh30_LS100_high_w=30_b=10.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Uniform_Nh30_LS100_high_w=30_b=10.gif" alt="Case 5-Uniform" />
 
 #### Normal:
 
-![Case 5-Normal](./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Normal_Nh30_LS100_Scale_w=10_b=3.gif)
+<img src="./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Normal_Nh30_LS100_Scale_w=10_b=3.gif" alt="Case 5-Normal" />
 
 ---
 
