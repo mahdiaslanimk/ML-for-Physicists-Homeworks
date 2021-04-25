@@ -167,7 +167,6 @@ scale_b = 1/3
 
 #### Normal:
 
-![Case 3-Normal]()
 <img src="./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Normal_Nh100_LS100_Scale_w=1_b=1div3.gif" alt="Case 3-Normal" />
 
 ---
