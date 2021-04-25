@@ -1,18 +1,18 @@
-<h1 style="color: rgb(94,92,230);">Homework 1</h1>
+# Homework 1
 
-<h2 style="color: rgb(255,149,0)">Problems 3<span style="color:rgb(90,200,250);">*</span>:</h2>
+## Problems 3*:
 
 Visualize the results of intermediate layers in a multi-layer randomly initialized NN (meaning: take a fixed randomly initialized multi-layer network, and then throw away the layers above layer n; and directly connect layer n to the output layer; see how results change when you vary n; you can start from the notebook [01_MachineLearning_Basics_NeuralNetworksPython.ipynb](https://owncloud.gwdg.de/index.php/s/Unl2Yru1HsqwQNK)
 
 
 
-<h2 style="color: rgb(255,149,0);">Problems 4:</h2>
+## Problems 4:
 
 What happens when you change the spread of the random weights? Smart weight initialization is an important point for NN training.
 
 
 
-<h2 style="color: rgb(52,199,82);">Solution Results:</h2>
+## Solution Results:
 
 I wrote one piece of code for problems 3 and 4 and most of it is same as the [suggested starting code](https://nbviewer.jupyter.org/urls/owncloud.gwdg.de/index.php/s/Unl2Yru1HsqwQNK/download). The solution is to to use a constant seed which makes random numbers predictable:
 
@@ -101,7 +101,7 @@ Now we can plot the results and make a gif from them. I made some gifs related w
 
 so the results are as follows:
 
-<h4 style="color: rgb(94,92,230);">Case 1:</h4>
+#### Case 1:
 
 ```python
 Nh_max    = 10
@@ -116,15 +116,15 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 1/problem3_Uniform_Nh10_LS100_high_w=3_b=1.mp4)
+![Case 1-Uniform](./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Uniform_Nh10_LS100_high_w=3_b=1.gif)
 
 #### Normal:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 1/problem3_Normal_Nh10_LS100_Scale_w=1_b=1div3.mp4)
+![Case 1-Normal](./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Normal_Nh10_LS100_Scale_w=1_b=1div3.gif)
 
+---
 
-
-<h4 style="color: rgb(94,92,230);">Case 2:</h4>
+#### Case 2:
 
 ```python
 Nh_max    = 100
@@ -139,15 +139,15 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 3/problem3_Uniform_Nh100_LS10_high_w=3_b=1.mp4)
+![Case 2-Uniform](./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Uniform_Nh100_LS10_high_w=3_b=1.gif)
 
 #### Normal:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 3/problem3_Normal_Nh100_LS10_Scale_w=1_b=1div3.mp4)
+![Case 2-Normal](./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Normal_Nh100_LS10_Scale_w=1_b=1div3.gif)
 
+---
 
-
-<h4 style="color: rgb(94,92,230);">Case 3:</h4>
+#### Case 3:
 
 ```python
 Nh_max    = 100
@@ -162,15 +162,15 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 5/problem3_Uniform_Nh100_LS100_high_w=3_b=1.mp4)
+![Case 3-Uniform](./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Uniform_Nh100_LS100_high_w=3_b=1.gif)
 
 #### Normal:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 5/problem3_Normal_Nh100_LS100_Scale_w=1_b=1div3.mp4)
+![Case 3-Normal](./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Normal_Nh100_LS100_Scale_w=1_b=1div3.gif)
 
+---
 
-
-<h4 style="color: rgb(94,92,230);">Case 4:</h4>
+#### Case 4:
 
 ```Python
 Nh_max    = 30
@@ -185,15 +185,15 @@ scale_b = 1/3
 
 #### Uniform:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 2/problem3_Uniform_Nh30_LS100_high_w=3_b=1.mp4)
+![Case 4-Uniform](./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Uniform_Nh30_LS100_high_w=3_b=1.gif)
 
 #### Normal:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 2/problem3_Normal_Nh30_LS100_Scale_w=1_b=1div3.mp4)
+![Case 4-Normal](./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Normal_Nh30_LS100_Scale_w=1_b=1div3.gif)
 
+---
 
-
-<h4 style="color: rgb(94,92,230);">Case 5:</h4>
+#### Case 5:
 
 ```Python
 Nh_max    = 30
@@ -208,13 +208,15 @@ scale_b = 3
 
 #### Uniform:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 6/problem3_Uniform_Nh30_LS100_high_w=30_b=10.mp4)
+![Case 5-Uniform](./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Uniform_Nh30_LS100_high_w=30_b=10.gif)
 
 #### Normal:
 
-![Alt Text](./problem 3 and 4/mp4/Uniform vs Normal 6/problem3_Normal_Nh30_LS100_Scale_w=10_b=3.mp4)
+![Case 5-Normal](./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Normal_Nh30_LS100_Scale_w=10_b=3.gif)
 
-<h2 style="color: rgb(255,59,48)">Conclusions:</h2>
+---
+
+## Conclusions:
 
 1. By adding more hidden layers the network is able to generate more complicated outputs(function). That's why we use deep nets.
 2. To generate a complex output (function) we have to increase both **number of hidden layers**(```Nh_max```) and **layer size**.
