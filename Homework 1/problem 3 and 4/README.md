@@ -13,7 +13,7 @@ What happens when you change the spread of the random weights? Smart weight init
 
 
 Notebook preview:
-[HW1: Problems 3 and 4]()
+[HW1: Problems 3 and 4](https://nbviewer.jupyter.org/github/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/HW1_Problem_3_4.ipynb)
 
 ## Solution Results:
 
