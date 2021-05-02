@@ -32,5 +32,5 @@ Explore cases of curve fitting where there are several (non-equivalent) local mi
 
 ---
 
-<sup>🌟</sup>: Suggested by [Dr. Florian Marquardt](https://scholar.google.com/citations?user=jx_c7SgAAAAJ&hl=en&oi=ao)
+<sup>🌟</sup>: Suggested by [Dr. Florian Marquardt](https://scholar.google.com/citations?user=jx_c7SgAAAAJ&hl=en&oi=ao) (Essential)
 

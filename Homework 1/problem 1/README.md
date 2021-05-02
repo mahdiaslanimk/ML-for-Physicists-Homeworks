@@ -6,6 +6,8 @@ Implement a network that computes XOR (arbitrary number of hidden layers); meani
 
 
 
+# 🧠 Solution:
+
 Notebook preview:
 [HW1: Problem 1*](https://nbviewer.jupyter.org/github/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%201/HW1_Problem_1.ipynb)
 

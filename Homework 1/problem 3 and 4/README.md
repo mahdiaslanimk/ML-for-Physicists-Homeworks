@@ -15,7 +15,7 @@ What happens when you change the spread of the random weights? Smart weight init
 Notebook preview:
 [HW1: Problems 3 and 4](https://nbviewer.jupyter.org/github/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/HW1_Problem_3_4.ipynb)
 
-## Solution Results:
+## 🧠 Solution Results:
 
 I wrote one piece of code for problems 3 and 4 and most of it is same as the [suggested starting code](https://nbviewer.jupyter.org/urls/owncloud.gwdg.de/index.php/s/Unl2Yru1HsqwQNK/download). The solution is to to use a constant ```seed``` which makes random numbers predictable:
 
