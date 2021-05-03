@@ -11,21 +11,37 @@ Carefully study the backpropagation algorithm, on paper and in the program
 **Note:** all of the details are explained in the [2nd lecture](https://www.video.uni-erlangen.de/clip/id/11034) of the course, some figures are borrowed from [the slides](https://pad.gwdg.de/s/Machine_Learning_For_Physicists_2021#Slides)
 
 Artificial Neural Networks (ANNs) consist of neurons and the connections between them. We've learned that the value of output neurons is calculated by applying a non-linear function <img src="https://render.githubusercontent.com/render/math?math=f(z)"> (e.g. Sigmoid, reLU) to a linear function of input neurons. In matrix/vector notation for one sample we have:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Bsplit%7D%0A%5Ctext%7Binput%20vector%7D%26%3A%5Cquad%20y%5E%7Bin%7D%20%5C%5C%0A%5Ctext%7Bweights%20matrix%7D%26%3A%5Cquad%20w%20%5C%5C%0A%5Ctext%7Bbias%20vector%7D%26%3A%5Cquad%20b%20%5C%5C%0A%5Ctext%7Bnon-linear%20function%7D%26%3A%20%5Cquad%20f(z)%20%5C%5C%0A%5Ctext%7Boutput%20vector%7D%26%3A%5Cquad%20y%20%5C%5C%20%5C%5C%0Ay%3Df(z)%20%5Cquad%20%26%2C%20%5Cquad%20z%3Dwy%5E%7Bin%7D%0A%5Cend%7Bsplit%7D">
-
+$$
+\begin{split}
+\text{input vector}&:\quad y^{in} \\
+\text{weights matrix}&:\quad w \\
+\text{bias vector}&:\quad b \\
+\text{non-linear function}&: \quad f(z) \\
+\text{output vector}&:\quad y \\ \\
+y=f(z) \quad &, \quad z=wy^{in}
+\end{split}
+$$
 Notice that the non-linear function <img src="https://render.githubusercontent.com/render/math?math=f(z)"> is kept fixed but the linear function *z* has parameters that can change. Basically we can say that "a neural network computes a complicated non-linear function that depends on all parameters (all weights and biases)". So we have:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Bsplit%7D%0Ay%5E%7Bout%7D%3DF_w(y%5E%7Bin%7D)%20%5C%5C%0AF%3A%20%5Ctext%7Bneural%20network%7D%20%5C%5C%0Aw%3A%20%5Ctext%7Bweights%20and%20biases%7D%0A%5Cend%7Bsplit%7D">
-
+$$
+\begin{split}
+y^{out}=F_w(y^{in}) \\
+F: \text{neural network} \\
+w: \text{weights and biases}
+\end{split}
+$$
 Lets call the desired target function <img src="https://render.githubusercontent.com/render/math?math=F(y^{in})">. So we would like our neural network to approximate this target function:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Bsplit%7D%0Ay%5E%7Bout%7D%20%3D%20F_w(y%5E%7Bin%7D)%20%5Capprox%20F(y%5E%7Bin%7D)%0A%5Cend%7Bsplit%7D">
-
+$$
+\begin{split}
+y^{out} = F_w(y^{in}) \approx F(y^{in})
+\end{split}
+$$
 We define a **Cost Function**:
-
-<img src="https://render.githubusercontent.com/render/math?math=C(w)%3D%5Cfrac%7B1%7D%7B2%7D%5Cleft%5Clangle%5Cleft%7C%5Cleft%7C%20%5Cunderbrace%7BF_w(y%5E%7Bin%7D)-F(y%5E%7Bin%7D)%7D_%7B%5Ctext%7BDeviation%7D%7D%5Cright%7C%5Cright%7C%5E2%20%5Cright%5Crangle">
-
+$$
+\begin{split}
+C(w)=\frac{1}{2}\left<\left|\left| \underbrace{F_w(y^{in})-F(y^{in})}_{\text{Deviation}}
+ \right|\right|^2\right>
+\end{split}
+$$
 and <img src="https://render.githubusercontent.com/render/math?math=||.||"> denotes the vector norm. Because of taking average over all samples the *cost function* does not depend on the input sample, but it depends on the parameters of the neural network (namely weights and biases).
 
 
@@ -33,13 +49,15 @@ and <img src="https://render.githubusercontent.com/render/math?math=||.||"> deno
 ## ⛳️ Goal:
 
 Our goal is to minimize the cost function by finding an appropriate set of weights and biases. For N samples we can write <img src="https://render.githubusercontent.com/render/math?math=C(w)"> as:
-
-<img src="https://render.githubusercontent.com/render/math?math=C(w)%5Capprox%20%5Cfrac%7B1%7D%7B2%7D%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bs%3D1%7D%5E%7BN%7D%20%5Cleft%7C%5Cleft%7CF_w(y%5E%7B(s)%7D)%20-%20F(y%5E%7B(s)%7D)%20%5Cright%7C%5Cright%7C%5E2%20%5Cquad%2C%5Cquad%20s%3A%5Ctext%7Bindex%20of%20sample%7D">
-
+$$
+\begin{split}
+C(w)\approx \frac{1}{2}\frac{1}{N}\sum_{s=1}^{N} \left|\left|F_w(y^{(s)}) - F(y^{(s)}) \right|\right|^2 \quad,\quad s:\text{index of sample}
+\end{split}
+$$
 Notice that for evaluating <img src="https://render.githubusercontent.com/render/math?math=C"> averaging over all training samples is a problem. The solution is to average over a few sample (a *batch* of samples). This way we get an approximated version of <img src="https://render.githubusercontent.com/render/math?math=C"> which we call it <img src="https://render.githubusercontent.com/render/math?math=\tilde C">:
-
-<img src="https://render.githubusercontent.com/render/math?math=w_j%20%5Cmapsto%20w_j-%5Ceta%5Cfrac%7B%5Cpartial%20%5Ctilde%20C(w)%7D%7B%5Cpartial%20w_j%7D%20%5Cquad%2C%5Cquad%20%5Ceta%3A%20%5C%2C%5Ctext%7Bstep%20size%20(learning%20rate)%7D">
-
+$$
+w_j \mapsto w_j-\eta\frac{\partial \tilde C(w)}{\partial w_j} \quad,\quad \eta: \,\text{step size (learning rate)}
+$$
 So the question is:
 
 ## 🤔 How to calculate <img src="https://render.githubusercontent.com/render/math?math=\frac{\partial C}{\partial w_*}">?
@@ -57,46 +75,59 @@ So the question is:
 ---
 
 For a full network we have to be careful with the notations and indices:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Bsplit%7D%0Ay_j%5E%7B(n)%7D%20%26%3A%20%5Cquad%20%5Ctext%7Bvalue%20of%20neuron%20j%20in%20layer%20n%7D%5C%5C%0Az_j%5E%7B(n)%7D%20%26%3A%20%5Cquad%20%5Ctext%7Binput%20value%20for%20%7Dy%3Df(z)%20%5C%5C%0Aw_%7Bjk%7D%5E%7B(n%2Cn-1)%7D%20%26%3A%20%5Cquad%20%20%5Ctext%7Bweight%20of%20connection%20between%20neuron%20k%7D%20%20%5C%5C%0A%26%5Cquad%20%5Cquad%20%5Ctext%7Bin%20layer%20n-1%20and%20neuron%20j%20in%20layer%20n%7D%0A%5Cend%7Bsplit%7D">
-
+$$
+\begin{split}
+y_j^{(n)} &: \quad \text{value of neuron j in layer n}\\
+z_j^{(n)} &: \quad \text{input value for }y=f(z) \\
+w_{jk}^{(n,n-1)} &: \quad  \text{weight of connection between neuron k}  \\
+&\quad \quad \text{in layer n-1 and neuron j in layer n}
+\end{split}
+$$
 We have:
-
-<img src="https://render.githubusercontent.com/render/math?math=C(w)%3D%5Cleft%5Clangle%20C(w%2Cy%5E%7Bin%7D)%20%5Cright%5Crangle">
-
+$$
+C(w)=\left< C(w,y^{in}) \right>
+$$
 with <img src="https://render.githubusercontent.com/render/math?math=C(w,y^{in})"> being cost value for one particular input. If we assume that <img src="https://render.githubusercontent.com/render/math?math=y_{j}^{(n)}=f(z_{j}^{(n)})">  we can write:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Bsplit%7D%0A%5Cfrac%7B%5Cpartial%20C(w%2Cy%5E%7Bin%7D)%7D%7B%5Cpartial%20w_*%7D%20%26%3D%20%5Csum_%7Bj%7D%5Cleft(y_%7Bj%7D%5E%7B(n)%7D-F_%7Bj%7D%5Cleft(y%5E%7B%5Cmathrm%7Bin%7D%7D%5Cright)%5Cright)%20%5Cfrac%7B%5Cpartial%20y_%7Bj%7D%5E%7B(n)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%5C%5C%0A%26%3D%20%5Csum_%7Bj%7D%5Cleft(y_%7Bj%7D%5E%7B(n)%7D-F_%7Bj%7D%5Cleft(y%5E%7B%5Cmathrm%7Bin%7D%7D%5Cright)%5Cright)%20f%5E%7B%5Cprime%7D(z_%7Bj%7D%5E%7B(n)%7D)%20%5Cfrac%7B%5Cpartial%20z_%7Bj%7D%5E%7B(n)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%0A%5Cend%7Bsplit%7D">
-
+$$
+\begin{split}
+\frac{\partial C(w,y^{in})}{\partial w_*} &= \sum_{j}\left(y_{j}^{(n)}-F_{j}\left(y^{\mathrm{in}}\right)\right) \frac{\partial y_{j}^{(n)}}{\partial w_{*}} \\
+&= \sum_{j}\left(y_{j}^{(n)}-F_{j}\left(y^{\mathrm{in}}\right)\right) f^{\prime}(z_{j}^{(n)}) \frac{\partial z_{j}^{(n)}}{\partial w_{*}}
+\end{split}
+$$
 Therefore we need to calculate <img src="https://render.githubusercontent.com/render/math?math=\partial z_{j}^{(n)}/\partial w_{*}">
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%20%5Cfrac%7B%5Cpartial%20z_%7Bj%7D%5E%7B(n)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%26%3D%5Csum_%7Bk%7D%20%5Cfrac%7B%5Cpartial%20z_%7Bj%7D%5E%7B(n)%7D%7D%7B%5Cpartial%20y_%7Bk%7D%5E%7B(n-1)%7D%7D%20%5Cfrac%7B%5Cpartial%20y_%7Bk%7D%5E%7B(n-1)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%5C%5C%20%26%3D%5Csum_%7Bk%7D%20w_%7Bj%20k%7D%5E%7Bn%2C%20n-1%7D%20f%5E%7B%5Cprime%7D(z_%7Bk%7D%5E%7B(n-1)%7D)%20%5Cfrac%7B%5Cpartial%20z_%7Bk%7D%5E%7B(n-1)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%0A%5Cend%7Baligned%7D">
-
+$$
+\begin{aligned} \frac{\partial z_{j}^{(n)}}{\partial w_{*}} &=\sum_{k} \frac{\partial z_{j}^{(n)}}{\partial y_{k}^{(n-1)}} \frac{\partial y_{k}^{(n-1)}}{\partial w_{*}} \\ &=\sum_{k} w_{j k}^{n, n-1} f^{\prime}(z_{k}^{(n-1)}) \frac{\partial z_{k}^{(n-1)}}{\partial w_{*}} 
+\end{aligned}
+$$
 Therefore we need to calculate <img src="https://render.githubusercontent.com/render/math?math=\partial z_{k}^{(n-1)}/\partial w_{*}">
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cbegin%7Baligned%7D%20%5Cfrac%7B%5Cpartial%20z_%7Bk%7D%5E%7B(n-1)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%26%3D%5Csum_%7Bl%7D%20%5Cfrac%7B%5Cpartial%20z_%7Bk%7D%5E%7B(n-1)%7D%7D%7B%5Cpartial%20y_%7Bl%7D%5E%7B(n-2)%7D%7D%20%5Cfrac%7B%5Cpartial%20y_%7Bl%7D%5E%7B(n-2)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%5C%5C%20%26%3D%5Csum_%7Bl%7D%20w_%7Bk%20l%7D%5E%7Bn-1%2C%20n-2%7D%20f%5E%7B%5Cprime%7D(z_%7Bl%7D%5E%7B(n-2)%7D)%20%5Cfrac%7B%5Cpartial%20z_%7Bl%7D%5E%7B(n-2)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%20%0A%5Cend%7Baligned%7D">
-
+$$
+\begin{aligned} \frac{\partial z_{k}^{(n-1)}}{\partial w_{*}} &=\sum_{l} \frac{\partial z_{k}^{(n-1)}}{\partial y_{l}^{(n-2)}} \frac{\partial y_{l}^{(n-2)}}{\partial w_{*}} \\ &=\sum_{l} w_{k l}^{n-1, n-2} f^{\prime}(z_{l}^{(n-2)}) \frac{\partial z_{l}^{(n-2)}}{\partial w_{*}} 
+\end{aligned}
+$$
 We can see the pattern. Remember that we had:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20z_%7Bj%7D%5E%7B(n)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%3D%5Csum_%7Bk%7D%20w_%7Bj%20k%7D%5E%7Bn%2C%20n-1%7D%20f%5E%7B%5Cprime%7D(z_%7Bk%7D%5E%7B(n-1)%7D)%20%5Cfrac%7B%5Cpartial%20z_%7Bk%7D%5E%7B(n-1)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D">
-
+$$
+\frac{\partial z_{j}^{(n)}}{\partial w_{*}}=\sum_{k} w_{j k}^{n, n-1} f^{\prime}(z_{k}^{(n-1)}) \frac{\partial z_{k}^{(n-1)}}{\partial w_{*}}
+$$
 We can interpret <img src="https://render.githubusercontent.com/render/math?math=w_{j k}^{n,n-1} f^{\prime}\left(z_{k}^{(n-1)}\right)"> as a matrix multiplication with elements:
-
-<img src="https://render.githubusercontent.com/render/math?math=M_%7Bj%20k%7D%5E%7B(n%2C%20n-1)%7D%3Dw_%7Bj%20k%7D%5E%7B(n%2C%20n-1)%7D%20f%5E%7B%5Cprime%7D(z_%7Bk%7D%5E%7B(n-1)%7D)">
-
+$$
+M_{j k}^{(n, n-1)}=w_{j k}^{(n, n-1)} f^{\prime}(z_{k}^{(n-1)})
+$$
 By by repeating matrix multiplication and going down the network we have:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20z_%7Bj%7D%5E%7B(n)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D%3D%5Csum_%7Bk%2C%20l%2C%20%5Cldots%2C%20u%2C%20v%7D%20M_%7Bj%20k%7D%5E%7Bn%2C%20n-1%7D%20M_%7Bk%20l%7D%5E%7Bn-1%2C%20n-2%7D%20%5Cldots%20M_%7Bu%20v%7D%5E%7B%5Ctilde%7Bn%7D%2B1%2C%20%5Ctilde%7Bn%7D%7D%20%5Cfrac%7B%5Cpartial%20z_%7Bv%7D%5E%7B(%5Ctilde%7Bn%7D)%7D%7D%7B%5Cpartial%20w_%7B*%7D%7D">
-
+$$
+\frac{\partial z_{j}^{(n)}}{\partial w_{*}}=\sum_{k, l, \ldots, u, v} M_{j k}^{n, n-1} M_{k l}^{n-1, n-2} \ldots M_{u v}^{\tilde{n}+1, \tilde{n}} \frac{\partial z_{v}^{(\tilde{n})}}{\partial w_{*}}
+$$
 So by going down the network we finally encounter the weight (or bias) which we wanted to calculate the derivative of the cost function. There are two cases:
 
 1. if <img src="https://render.githubusercontent.com/render/math?math=w_{*}"> was really a weight:
-   
-   <img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20z_j%5E%7B(n)%7D%7D%7B%5Cpartial%20w_%7Bj%2Ck%7D%5E%7B(%5Ctilde%20n%2C%20%5Ctilde%20n-1)%7D%7D%20%3D%20y_k%5E%7B(%5Ctilde%20n%20-1)%7D">
+   $$
+   \frac{\partial z_j^{(n)}}{\partial w_{j,k}^{(\tilde n, \tilde n-1)}} = y_k^{(\tilde n -1)}
+   $$
    
 2. if <img src="https://render.githubusercontent.com/render/math?math=w_{*}"> was a bias:
 
-<img src="https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20z_j%5E%7B(n)%7D%7D%7B%5Cpartial%20b_%7Bj%7D%5E%7B%5Ctilde%20n%7D%7D%20%3D%201">
+$$
+\frac{\partial z_j^{(n)}}{\partial b_{j}^{\tilde n}} = 1
+$$
 
 ## Backpropagation Summary:
 
@@ -118,13 +149,13 @@ Biases[layer]  # Dimension: neurons[layer]
 ```
 
 So use the names ```dWeights``` for:
-
-\text{dWeights[n]}=\frac{\partial z_j^{(n)}}{\partial w_{jk}^{(n,n-1)}} = \left\langle \Delta_j y_k^{(n-1)} \right\rangle
-
+$$
+\text{dWeights[n]}=\frac{\partial z_j^{(n)}}{\partial w_{jk}^{(n,n-1)}} = \left< \Delta_j y_k^{(n-1)} \right>
+$$
 and ```dBiases``` for:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5Ctext%7BdBiases%5Bn%5D%7D%3D%5Cfrac%7B%5Cpartial%20z_j%5E%7B(n)%7D%7D%7B%5Cpartial%20b_%7Bj%7D%5E%7B(n)%7D%7D%20%3D%20%5Cleft%5Clangle%20%5CDelta_j%20%20%5Cright%5Crangle">
-
+$$
+\text{dBiases[n]}=\frac{\partial z_j^{(n)}}{\partial b_{j}^{(n)}} = \left< \Delta_j  \right>
+$$
 So we implement these like this:
 
 ```python
@@ -133,9 +164,9 @@ dBiases[layer]  = Delta.sum(0)/batchsize # summation over index 0 = batch index
 ```
 
 And  to implement <img src="https://render.githubusercontent.com/render/math?math=\Delta_k">:
-
-<img src="https://render.githubusercontent.com/render/math?math=%5CDelta_k%20%3D%20%5Csum_j%20%5CDelta_j%20M_%7Bjk%7D%5E%7B(n%2Cn-1)%7D%20%5Cquad%2C%5Cqquad%20M_%7Bjk%7D%5E%7B(n%2Cn-1)%7D%20%3D%20w_%7Bjk%7D%5E%7B(n%2Cn-1)%7D%20f%5E%7B%5Cprime%7D%20(z_k%5E%7B(n-1)%7D)">
-
+$$
+\Delta_k = \sum_j \Delta_j M_{jk}^{(n,n-1)} \quad,\qquad M_{jk}^{(n,n-1)} = w_{jk}^{(n,n-1)} f^{\prime} (z_k^{(n-1)})
+$$
 we write:
 
 ```python
@@ -237,6 +268,3 @@ def train_net(y_in,y_target,eta): # one full training batch
     cost=((y_target-y_out_result)**2).sum()/batchsize
     return(cost)
 ```
-
-
-
