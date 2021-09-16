@@ -121,11 +121,11 @@ scale_b = 1/3
 
 #### Uniform:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Uniform_Nh10_LS100_high_w=3_b=1.gif" alt="Case 1-Uniform" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%201/problem3_Uniform_Nh10_LS100_high_w%3D3_b%3D1.gif" alt="Case 1-Uniform" />
 
 #### Normal:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 1/problem3_Normal_Nh10_LS100_Scale_w=1_b=1div3.gif" alt="Case 1-Normal" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%201/problem3_Normal_Nh10_LS100_Scale_w%3D1_b%3D1div3.gif" alt="Case 1-Normal" />
 
 ---
 
@@ -144,12 +144,12 @@ scale_b = 1/3
 
 #### Uniform:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Uniform_Nh100_LS10_high_w=3_b=1.gif" alt="Case 2-Uniform" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%203/problem3_Uniform_Nh100_LS10_high_w%3D3_b%3D1.gif" alt="Case 2-Uniform" />
 
 
 #### Normal:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 3/problem3_Normal_Nh100_LS10_Scale_w=1_b=1div3.gif" alt="Case 2-Normal" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%203/problem3_Normal_Nh100_LS10_Scale_w%3D1_b%3D1div3.gif" alt="Case 2-Normal" />
 
 ---
 
@@ -168,11 +168,11 @@ scale_b = 1/3
 
 #### Uniform:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Uniform_Nh100_LS100_high_w=3_b=1.gif" alt="Case 3-Uniform" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%205/problem3_Uniform_Nh100_LS100_high_w%3D3_b%3D1.gif" alt="Case 3-Uniform" />
 
 #### Normal:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 5/problem3_Normal_Nh100_LS100_Scale_w=1_b=1div3.gif" alt="Case 3-Normal" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%205/problem3_Normal_Nh100_LS100_Scale_w%3D1_b%3D1div3.gif" alt="Case 3-Normal" />
 
 ---
 
@@ -191,11 +191,11 @@ scale_b = 1/3
 
 #### Uniform:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Uniform_Nh30_LS100_high_w=3_b=1.gif" alt="Case 4-Uniform" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%202/problem3_Uniform_Nh30_LS100_high_w%3D3_b%3D1.gif" alt="Case 4-Uniform" />
 
 #### Normal:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 2/problem3_Normal_Nh30_LS100_Scale_w=1_b=1div3.gif" alt="Case 4-Normal" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%202/problem3_Normal_Nh30_LS100_Scale_w%3D1_b%3D1div3.gif" alt="Case 4-Normal" />
 
 ---
 
@@ -214,11 +214,11 @@ scale_b = 3
 
 #### Uniform:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Uniform_Nh30_LS100_high_w=30_b=10.gif" alt="Case 5-Uniform" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%206/problem3_Uniform_Nh30_LS100_high_w%3D30_b%3D10.gif" alt="Case 5-Uniform" />
 
 #### Normal:
 
-<img src="./problem 3 and 4/gif/Uniform vs Normal 6/problem3_Normal_Nh30_LS100_Scale_w=10_b=3.gif" alt="Case 5-Normal" />
+<img src="https://github.com/mahdiaslanimk/ML-for-Physicists-Homeworks/blob/main/Homework%201/problem%203%20and%204/gif/Uniform%20vs%20Normal%206/problem3_Normal_Nh30_LS100_Scale_w%3D10_b%3D3.gif" alt="Case 5-Normal" />
 
 ---
 
